@@ -1,0 +1,20 @@
+// csproj dosyasına eklemen ve server veya client olduğunu belirtmrn gerek 
+syntax = "proto3";
+
+option csharp_namespace = "GRPC_Client";
+
+package greet;
+
+service Greeter {
+  rpc SayHello (HelloRequest) returns (HelloReply);
+}
+
+message HelloRequest {
+  // nunaralar sıra belirtmek için 
+  string name = 1;
+}
+
+
+message HelloReply {
+  string message = 1;
+}

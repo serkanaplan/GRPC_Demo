@@ -1,0 +1,26 @@
+// csproj dosyasına eklemen ve server veya client olduğunu belirtmrn gerek 
+//      -Tür-	                -istek Sayısı-	   -Yanıt Sayısı-        -İletişim Yönü-	               -Kullanım Senaryosu-
+// Unary RPC	                      1	                 1	        Tek yönlü (Client → Server)	    Tek yanıt gerektiren işlemler
+// Server Streaming RPC	            1	               Çoklu	      Tek yönlü (Server → Client)	        Sürekli veri yayını
+// Client Streaming RPC	          Çoklu	               1	        Tek yönlü (Client → Server)	        Toplu veri gönderimi
+// Bidirectional Streaming RPC	  Çoklu	             Çoklu	      Çift yönlü (Client ↔ Server)	     Gerçek zamanlı iletişim
+
+syntax = "proto3";
+
+option csharp_namespace = "GRPC_Server";
+
+package greet;
+
+service Greeter {
+  rpc SayHello (HelloRequest) returns (HelloReply);
+}
+
+message HelloRequest {
+  // nunaralar sıra belirtmek için 
+  string name = 1;
+}
+
+
+message HelloReply {
+  string message = 1;
+}

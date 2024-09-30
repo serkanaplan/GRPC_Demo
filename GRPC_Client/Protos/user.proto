@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+option csharp_namespace = "GRPC_Client";
+
+package user;
+
+service User {
+  // Unary RPC tanımı
+  rpc GetUser (UserRequest) returns (UserResponse);
+}
+
+message UserRequest {
+  int32 userId = 1;
+}
+
+message UserResponse {
+  int32 userId = 1;
+  string name = 2;
+  string email = 3;
+}

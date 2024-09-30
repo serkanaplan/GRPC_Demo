@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+option csharp_namespace = "GRPC_Server";
+
+package chats;
+
+service Chats {
+  // Bidirectional streaming RPC tanımı
+  rpc Chats (stream ChatsMessage) returns (stream ChatsResponse);
+}
+
+message ChatsMessage {
+  string userId = 1;
+  string message = 2;
+}
+
+message ChatsResponse {
+  string userId = 1;
+  string message = 2;
+}

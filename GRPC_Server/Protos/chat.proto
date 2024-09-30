@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+option csharp_namespace = "GRPC_Server";
+
+package chat;
+
+service Chat {
+  // Server streaming RPC tanımı
+  rpc GetMessages (ChatRequest) returns (stream ChatMessage);
+}
+
+message ChatRequest {
+  string userId = 1;
+}
+
+message ChatMessage {
+  string userId = 1;
+  string message = 2;
+  string timestamp = 3;
+}
